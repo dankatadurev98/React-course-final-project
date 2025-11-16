@@ -18,7 +18,8 @@ export default function Header() {
 
   return (
     <header className="bg-gray-900">
-      <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
+      <nav aria-label="Global" className="flex w-full items-center justify-between p-6 lg:px-8">
+
         
         {/* LOGO */}
         <div className="flex lg:flex-1">
@@ -26,7 +27,7 @@ export default function Header() {
             <img
               alt="Gaming Store Logo"
               src="/img/1.png"
-              className="h-18 w-auto object-contain"
+              className="h-18 w- object-contain"
             />
           </a>
         </div>
@@ -44,14 +45,15 @@ export default function Header() {
 
         {/* DESKTOP NAVIGATION (NO POPOVER) */}
         <div className="hidden lg:flex lg:gap-x-12">
-          <a href="#" className="text-sm font-semibold text-white">Home</a>
-          <a href="#" className="text-sm font-semibold text-white">Catalog</a>
-          <a href="#" className="text-sm font-semibold text-white">Register</a>
+          <a href="#" className="text-sm font-semibold text-white hover:text-purple-500">Home</a>
+          <a href="#" className="text-sm font-semibold text-white hover:text-purple-500">About</a>
+          <a href="#" className="text-sm font-semibold text-white hover:text-purple-500">Catalog</a>
+          <a href="#" className="text-sm font-semibold text-white hover:text-purple-500">Register</a>
         </div>
 
         {/* LOGIN ON RIGHT */}
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" className="text-sm font-semibold text-white">
+          <a href="#" className="text-sm font-semibold text-white hover:text-purple-500">
             Log in →
           </a>
         </div>
@@ -86,6 +88,9 @@ export default function Header() {
 
                 <a href="#" className="block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-white/5">
                   Home
+                </a>
+                <a href="#" className="block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-white/5">
+                  About
                 </a>
 
                 <a href="#" className="block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-white/5">

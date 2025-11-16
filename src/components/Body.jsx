@@ -1,0 +1,45 @@
+export default function Body(){
+    return(
+        <section className="relative isolate overflow-hidden bg-gray-900 px-6 pt-24 pb-32 lg:px-8 min-h-screen flex items-center">
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 -top-40 -z-10 sm:-top-80"
+        >
+          <div
+            className="relative left-1/2 -translate-x-1/2 w-[36.125rem] sm:w-[72.1875rem] h-64 bg-gray-800 rounded-3xl opacity-40"
+          />
+        </div>
+
+
+        {/* Content */}
+        <div className="mx-auto max-w-2xl text-center w-full">
+
+
+          <h1 className="text-5xl font-bold tracking-tight text-white sm:text-6xl">
+            Level Up Your <span className="text-purple-500">Gaming Experience</span>
+          </h1>
+
+          <p className="mt-6 text-lg leading-8 text-gray-300">
+            Discover the best and most popular games — all in one modern gaming store.
+          </p>
+
+          <div className="mt-10 flex items-center justify-center gap-x-6">
+            <a
+              href="#catalog"
+              className="rounded-md bg-purple-500 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-white hover:text-purple-600"
+
+            >
+              Browse Catalog
+            </a>
+            <a
+              href="#learn"
+              className="text-sm font-semibold leading-6 text-white hover:text-purple-500"
+            >
+              Learn more <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+
+      </section>
+    )
+}
