@@ -1,6 +1,10 @@
-export default function Body(){
+import { Link } from "react-router"
+
+export default function Home(){
     return(
-        <section className="relative isolate overflow-hidden bg-gray-900 px-6 pt-24 pb-32 lg:px-8 min-h-screen flex items-center">
+        <section className="relative isolate overflow-hidden bg-gray-900 px-6 pt-24 pb-24 lg:px-8 min-h-screen flex items-start">
+
+
         <div
           aria-hidden="true"
           className="absolute inset-x-0 -top-40 -z-10 sm:-top-80"
@@ -24,19 +28,19 @@ export default function Body(){
           </p>
 
           <div className="mt-10 flex items-center justify-center gap-x-6">
-            <a
-              href="#catalog"
+            <Link
+              to="#catalog"
               className="rounded-md bg-purple-500 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-white hover:text-purple-600"
 
             >
               Browse Catalog
-            </a>
-            <a
-              href="#learn"
+            </Link>
+            <Link
+              to="#learn"
               className="text-sm font-semibold leading-6 text-white hover:text-purple-500"
             >
               Learn more <span aria-hidden="true">→</span>
-            </a>
+            </Link>
           </div>
         </div>
 

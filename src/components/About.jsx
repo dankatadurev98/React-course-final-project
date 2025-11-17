@@ -1,10 +1,10 @@
 export default function About() {
   return (
-    <section className="relative bg-gray-900 text-white py-24 px-6 overflow-hidden">
+<section className="relative bg-gray-900 text-white py-24 px-6 overflow-hidden min-h-screen">
+
 
       {/* Background glow effects */}
-      <div className="absolute -top-20 -left-20 h-72 w-72 rounded-full bg-purple-600 opacity-30 blur-3xl"></div>
-      <div className="absolute -bottom-20 -right-20 h-72 w-72 rounded-full bg-pink-500 opacity-30 blur-3xl"></div>
+      
 
       <div className="relative max-w-5xl mx-auto">
         
@@ -35,6 +35,7 @@ export default function About() {
             game details. Everything is built for speed, simplicity, and a smooth user
             experience.
           </p>
+
           
 
         </div>

@@ -1,7 +1,9 @@
+import { Link } from "react-router";
+
 export default function Register() {
   return (
     <>
-      <div className="flex min-h-screen flex-col justify-center px-6 py-12 bg-gray-900">
+      <div className="flex min-h-screen flex-col justify-start px-6 py-12 bg-gray-900">
 
         {/* LOGO */}
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -75,12 +77,12 @@ export default function Register() {
           {/* FOOTER */}
           <p className="mt-8 text-center text-sm text-gray-400">
             Already have an account?{" "}
-            <a
-              href="#"
+            <Link
+              to="/login"
               className="font-semibold text-purple-400 hover:text-purple-300"
             >
               Log in
-            </a>
+            </Link>
           </p>
         </div>
       </div>

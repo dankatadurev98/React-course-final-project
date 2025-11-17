@@ -1,4 +1,5 @@
 'use client'
+import { Link } from 'react-router'
 
 import { useState } from 'react'
 import {
@@ -23,13 +24,13 @@ export default function Header() {
         
         {/* LOGO */}
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
+          <Link to="/" className="-m-1.5 p-1.5">
             <img
               alt="Gaming Store Logo"
               src="/img/1.png"
               className="h-18 w- object-contain"
             />
-          </a>
+          </Link>
         </div>
 
         {/* MOBILE MENU BUTTON */}
@@ -45,17 +46,17 @@ export default function Header() {
 
         {/* DESKTOP NAVIGATION (NO POPOVER) */}
         <div className="hidden lg:flex lg:gap-x-12">
-          <a href="#" className="text-sm font-semibold text-white hover:text-purple-500">Home</a>
-          <a href="#" className="text-sm font-semibold text-white hover:text-purple-500">About</a>
-          <a href="#" className="text-sm font-semibold text-white hover:text-purple-500">Catalog</a>
-          <a href="#" className="text-sm font-semibold text-white hover:text-purple-500">Register</a>
+          <Link to="/" className="text-sm font-semibold text-white hover:text-purple-500">Home</Link>
+          <Link to="/about" className="text-sm font-semibold text-white hover:text-purple-500">About</Link>
+          <Link to="/cards" className="text-sm font-semibold text-white hover:text-purple-500">Catalog</Link>
+          <Link to="/register" className="text-sm font-semibold text-white hover:text-purple-500">Register</Link>
         </div>
 
         {/* LOGIN ON RIGHT */}
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" className="text-sm font-semibold text-white hover:text-purple-500">
+          <Link to="/login" className="text-sm font-semibold text-white hover:text-purple-500">
             Log in →
-          </a>
+          </Link>
         </div>
       </nav>
 

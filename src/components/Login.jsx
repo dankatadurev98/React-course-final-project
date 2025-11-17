@@ -1,7 +1,9 @@
+import { Link } from "react-router";
+
 export default function Login() {
   return (
     <>
-      <div className="flex min-h-screen flex-col justify-center px-6 py-12 bg-gray-900">
+      <div className="flex min-h-screen flex-col justify-start px-6 py-12 bg-gray-900">
 
         {/* LOGO */}
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -43,9 +45,7 @@ export default function Login() {
                 <label htmlFor="password" className="block text-sm font-medium text-gray-200">
                   Password
                 </label>
-                <a href="#" className="text-sm font-semibold text-purple-400 hover:text-purple-300 hover:drop-shadow-[0_0_6px_rgba(168,85,247,0.5)]">
-                  Forgot?
-                </a>
+                
               </div>
               <div className="mt-2">
                 <input
@@ -77,12 +77,12 @@ export default function Login() {
           {/* FOOTER */}
           <p className="mt-8 text-center text-sm text-gray-400">
             You don't have an account?{" "}
-            <a
-              href="#"
+            <Link
+              to="/register"
               className="font-semibold text-purple-400 hover:text-purple-300"
             >
               Register
-            </a>
+            </Link>
           </p>
         </div>
       </div>
