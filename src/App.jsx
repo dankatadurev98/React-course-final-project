@@ -5,7 +5,7 @@ import Cards from "./components/Cards"
 import Register from "./components/Register"
 import Login from "./components/Login"
 import Home from "./components/Home"
-import { Routes,Route } from "react-router"
+import { Routes, Route } from "react-router"
 
 function App() {
 
@@ -13,15 +13,15 @@ function App() {
     <div>
       <Header />
 
-<Routes>
-<Route path="/" element={<Home/>}/>
-<Route path='/about' element={<About/>}/>
-<Route path='/register' element={<Register/>}/>
-<Route path='/login' element={<Login/>}/>
-<Route path='/cards' element={<Cards/>}/>
-</Routes>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/cards' element={<Cards />} />
+      </Routes>
 
-     
+
 
       <Footer />
 
