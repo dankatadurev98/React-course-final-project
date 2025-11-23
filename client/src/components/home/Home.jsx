@@ -36,7 +36,7 @@ export default function Home() {
 
         <div className="mt-10 flex items-center justify-center gap-x-6">
           <Link
-            to="/cards"
+            to="/catalog"
             className="rounded-md bg-purple-500 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-white hover:text-purple-600"
 
           >

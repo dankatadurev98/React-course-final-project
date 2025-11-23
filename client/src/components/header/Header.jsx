@@ -27,7 +27,7 @@ export default function Header() {
           <Link to="/" className="-m-1.5 p-1.5">
             <img
               alt="Gaming Store Logo"
-              src="/img/1.png"
+              src="/images/1.png"
               className="h-18 w- object-contain"
             />
           </Link>
@@ -48,7 +48,8 @@ export default function Header() {
         <div className="hidden lg:flex lg:gap-x-12">
           <Link to="/" className="text-sm font-semibold text-white hover:text-purple-500">Home</Link>
           <Link to="/about" className="text-sm font-semibold text-white hover:text-purple-500">About</Link>
-          <Link to="/cards" className="text-sm font-semibold text-white hover:text-purple-500">Catalog</Link>
+          <Link to="/catalog" className="text-sm font-semibold text-white hover:text-purple-500">Catalog</Link>
+          <Link to="/addGame" className="text-sm font-semibold text-white hover:text-purple-500">Add Game</Link>
           <Link to="/register" className="text-sm font-semibold text-white hover:text-purple-500">Register</Link>
         </div>
 
@@ -69,7 +70,7 @@ export default function Header() {
             <a href="#" className="-m-1.5 p-1.5">
               <img
                 alt=""
-                src="/img/1.png"
+                src="/images/1.png"
                 className="h-12 w-auto object-contain"
               />
             </a>

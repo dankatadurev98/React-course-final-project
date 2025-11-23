@@ -10,7 +10,7 @@ export default function Login() {
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
             alt="Gaming Store"
-            src="/img/1.png"
+            src="/images/1.png"
             className="mx-auto h-16 w-auto"
           />
           <h2 className="mt-6 text-center text-3xl font-extrabold tracking-tight text-white">

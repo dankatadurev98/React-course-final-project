@@ -1,13 +1,13 @@
 export default function About() {
   return (
-<section className="relative bg-gray-900 text-white py-24 px-6 overflow-hidden min-h-screen">
+    <section className="relative bg-gray-900 text-white py-24 px-6 overflow-hidden min-h-screen">
 
 
       {/* Background glow effects */}
-      
+
 
       <div className="relative max-w-5xl mx-auto">
-        
+
         {/* Title */}
         <h1 className="text-center text-5xl font-extrabold tracking-tight">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">
@@ -36,7 +36,7 @@ export default function About() {
             experience.
           </p>
 
-          
+
 
         </div>
       </div>
