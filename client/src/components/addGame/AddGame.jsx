@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router"
-import { api, endpoints } from "../../requests/requests";
+import { api,endpoints } from "../../requests/requests";
 
 export default function AddGame() {
 
@@ -20,10 +20,6 @@ export default function AddGame() {
       summary: data.summary,
     }
 
-
-
-
-
     api.post(endpoints.games, fields)
       .then(res => {
         console.log(res);
@@ -34,9 +30,6 @@ export default function AddGame() {
         console.log('Problem with POST Request!');
         console.log(err.message);
       });
-
-
-
 
   }
 
@@ -69,14 +62,6 @@ export default function AddGame() {
         <input
           type="text"
           name="imageUrl"
-          className="w-full p-3 rounded-md bg-gray-700 text-white mb-4 focus:outline-none focus:ring focus:ring-purple-500"
-        />
-
-        {/* PRICE */}
-        <label className="block text-purple-300 mb-2">Price $:</label>
-        <input
-          type="number"
-          name="price"
           className="w-full p-3 rounded-md bg-gray-700 text-white mb-4 focus:outline-none focus:ring focus:ring-purple-500"
         />
 

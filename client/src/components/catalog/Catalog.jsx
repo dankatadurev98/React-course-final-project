@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import OneCard from "../oneCard/OneCard";
 import { api,endpoints } from "../../requests/requests";
-import { data } from "react-router";
 
 export default function Catalog() {
 
@@ -9,12 +8,13 @@ export default function Catalog() {
 
 
 
-  
-useEffect(() => {
+
+  useEffect(() => {
     api.get(endpoints.games)
       .then(data => {
-        const list = Object.values(data);
-        setGames(list);
+        const info = Object.values(data);
+        setGames(info);
+        console.log(info)
       })
       .catch(err => console.log(err.message));
   }, []);
@@ -26,7 +26,7 @@ useEffect(() => {
         <h2 className="text-3xl font-bold tracking-tight text-white text-center pb-10 ">Games</h2>
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
 
-          {games.map(game=><OneCard key={game._id} {...game}/>)}
+          {games.map(game => <OneCard key={game._id} {...game} />)}
         </div>
       </div>
     </div>

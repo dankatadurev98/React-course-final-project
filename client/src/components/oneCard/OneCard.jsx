@@ -22,7 +22,7 @@ export default function OneCard({
         />
 
        <Link 
-  to="/catalog/details"
+  to={`/catalog/${_id}/details`}
   className="
     absolute inset-0 flex items-center justify-center 
     text-white text-xl font-bold 
