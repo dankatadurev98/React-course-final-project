@@ -19,6 +19,7 @@ export default function AddGame() {
       date: data.date,
       summary: data.summary,
     }
+   
 
     api.post(endpoints.games, fields)
       .then(res => {

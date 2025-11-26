@@ -1,6 +1,20 @@
 import { Link } from "react-router";
+import { api, endpoints } from "../../requests/requests";
 
 export default function Login() {
+
+  function onSubmit(formData){
+    
+    let data = Object.fromEntries(formData)
+
+    api.post(endpoints.login,data)
+    .then(res=>{
+      console.log(res)
+    })
+    .catch(info=>{
+      console.log(info)
+    })
+  }
   return (
     <>
       <div className="flex min-h-screen flex-col justify-start px-6 py-12 bg-gray-900">
@@ -21,7 +35,7 @@ export default function Login() {
 
         {/* FORM */}
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm bg-gray-800/40 p-8 rounded-xl shadow-lg border border-gray-700">
-          <form className="space-y-6">
+          <form className="space-y-6" action={onSubmit}>
 
             {/* EMAIL */}
             <div>

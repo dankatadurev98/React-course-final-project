@@ -1,6 +1,23 @@
+import { api,endpoints } from "../../requests/requests";
+
 import { Link } from "react-router";
 
 export default function Register() {
+
+function onSubmit(formData){
+
+  let data = Object.fromEntries(formData)
+
+  api.post(endpoints.register,data)
+  .then(res=>{
+    console.log(res)
+  })
+  .catch(info=>{
+    console.log(info)
+  })
+}
+
+
   return (
     <>
       <div className="flex min-h-screen flex-col justify-start px-6 py-12 bg-gray-900">
@@ -19,7 +36,7 @@ export default function Register() {
 
         {/* FORM */}
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm bg-gray-800/40 p-8 rounded-xl shadow-lg border border-gray-700">
-          <form className="space-y-6">
+          <form className="space-y-6" action={onSubmit}> 
 
             {/* EMAIL */}
             <div>
@@ -81,35 +98,6 @@ export default function Register() {
               </div>
             </div>
 
-            <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-200">
-                Repeat your password
-              </label>
-
-              <div className="mt-2 relative">
-                {/* Lock Icon */}
-                <svg
-                  className="absolute left-2.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeWidth="2"
-                    d="M12 15v2m-6-6h12v10H6V11zm6-8a3 3 0 00-3 3v3h6V6a3 3 0 00-3-3z"
-                  />
-                </svg>
-
-                <input
-                  placeholder="Repeat your password"
-                  id="password"
-                  name="password"
-                  type="password"
-                  required
-                  className="block w-full rounded-md bg-gray-900 pl-9 py-2 text-white border border-gray-700 placeholder-gray-400 focus:border-purple-500 focus:ring-2 focus:ring-purple-600"
-                />
-              </div>
-            </div>
 
             {/* SUBMIT */}
             <div>
