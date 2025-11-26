@@ -50,7 +50,6 @@ export default function OneCard({
           </h3>
 
         </div>
-        <p className="text-sm font-medium text-white">{price} $</p>
       </div>
     </div>
 

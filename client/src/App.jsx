@@ -9,6 +9,7 @@ import Login from "./components/login/Login"
 import Home from "./components/home/Home"
 import AddGame from "./components/addGame/AddGame"
 import Details from "./components/details/Details"
+import Edit from "./components/edit/Edit"
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path='/catalog' element={<Catalog />} />
         <Route path='/addGame' element={<AddGame/>}/>
         <Route path='/catalog/:_id/details' element={<Details/>}/>
+        <Route path="/catalog/:_id/details/edit" element={<Edit/>}/>
       </Routes>
       <Footer />
 

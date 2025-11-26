@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { api,endpoints } from "../../requests/requests";
+import { api, endpoints } from "../../requests/requests";
 
 
 import { Link, useParams } from "react-router";
@@ -7,24 +7,25 @@ import { Link, useParams } from "react-router";
 export default function Details() {
 
 
-  const { _id} = useParams();
-  const [game,setGame] = useState({})
+  const { _id } = useParams();
+  const [game, setGame] = useState({})
 
 
-  useEffect(()=>{
-api.get(endpoints.gamesById(_id))
-  .then(res=>{
-      setGame(res)
-  })
-  .catch(info=>{
-    console.log(info)
-  })
-  },[_id])
-  
+  useEffect(() => {
+    api.get(endpoints.gamesById(_id))
+      .then(res => {
+        setGame(res)
+      })
+      .catch(info => {
+        console.log(info)
+      })
+  }, [_id])
 
 
-  
-  
+  console.log(_id)
+
+
+
 
 
 
@@ -79,15 +80,24 @@ api.get(endpoints.gamesById(_id))
 
             {/* BUTTONS */}
             <div className="flex flex-wrap gap-4 pt-5">
-              
-              <button className="px-6 py-3 bg-purple-600 text-white rounded-md font-bold hover:bg-purple-700 transition">
-                Back to Catalog
-              </button>
-              
 
-              <button className="px-6 py-3 bg-blue-600 text-white rounded-md font-bold hover:bg-blue-700 transition">
-                Edit
-              </button>
+              <Link to="/catalog">
+                <button className="px-6 py-3 bg-purple-600 text-white rounded-md font-bold hover:bg-purple-700 transition">
+                  Back to Catalog
+                </button>
+              </Link>
+
+
+              <Link to={`/catalog/${_id}/details/edit`}>
+                <button className="px-6 py-3 bg-blue-600 text-white rounded-md font-bold hover:bg-blue-700 transition">
+                  Edit
+                </button>
+
+
+              </Link>
+
+
+
 
               <button className="px-6 py-3 bg-red-600 text-white rounded-md font-bold hover:bg-red-700 transition">
                 Delete
