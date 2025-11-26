@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import OneCard from "../oneCard/OneCard";
+import { api,endpoints } from "../../requests/requests";
+import { data } from "react-router";
 
 export default function Catalog() {
 
@@ -7,21 +9,17 @@ export default function Catalog() {
 
 
 
-  useEffect(() => {
-    fetch('http://localhost:3030/jsonstore/games')
-      .then(res =>
-        res.json()
-      )
+  
+useEffect(() => {
+    api.get(endpoints.games)
       .then(data => {
-        let info = Object.values(data)
-        setGames(info)
-        console.log(info);
-        
+        const list = Object.values(data);
+        setGames(list);
       })
-      .catch(info => {
-        console.log(info)
-      })
-  }, [])
+      .catch(err => console.log(err.message));
+  }, []);
+
+
   return (
     <div className="bg-gray-900 min-h-screen">
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">

@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router"
+import { api, endpoints } from "../../requests/requests";
 
 export default function AddGame() {
 
@@ -6,7 +7,7 @@ export default function AddGame() {
 
   function onSubmitForm(formData) {
 
-    
+
 
     let data = Object.fromEntries(formData)
 
@@ -19,26 +20,24 @@ export default function AddGame() {
       summary: data.summary,
     }
 
-    
 
-      fetch('http://localhost:3030/jsonstore/games',{
-        method:'POST',
-        headers:{"Content-Type":"application/json"},
-        body:JSON.stringify(fields)
-      })
-      .then(res=>
-        res.json()
-      )
-      .then(data=>{
-        console.log(`Correct Post Request!`)
+
+
+
+    api.post(endpoints.games, fields)
+      .then(res => {
+        console.log(res);
+        console.log('Successful POST Request!');
         navigator('/catalog')
       })
-      .catch(info=>{
-        console.log(`Problem with Post Request!`)
-      })
-    
+      .catch(err => {
+        console.log('Problem with POST Request!');
+        console.log(err.message);
+      });
 
-   
+
+
+
   }
 
   return (
