@@ -1,5 +1,5 @@
 'use client'
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 
 import { useContext, useState } from 'react'
 import {
@@ -18,6 +18,12 @@ import { AuthContext } from '../../context/authContext'
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { isAuthenticated,logout } = useContext(AuthContext);
+  const navigate = useNavigate()
+
+  function logoutHandle(){
+    logout();
+    navigate('/');
+  }
 
 
 
@@ -75,7 +81,8 @@ export default function Header() {
           )}
           {isAuthenticated && (
             <button
-              onClick={logout}
+              onClick={logoutHandle}
+               href='/'
               className="text-sm font-semibold text-white hover:text-purple-500"
             >
               Logout

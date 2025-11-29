@@ -1,24 +1,25 @@
-import { api,endpoints } from "../../requests/requests";
+import { api, endpoints } from "../../requests/requests";
 
-import { Link,useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 export default function Register() {
 
   const navigate = useNavigate()
 
-function onSubmit(formData){
+  function onSubmit(formData) {
 
-  let data = Object.fromEntries(formData)
+    let data = Object.fromEntries(formData)
 
-  api.post(endpoints.register,data)
-  .then(res=>{
-    console.log(res)
-    navigate('/')
-  })
-  .catch(info=>{
-    console.log(info)
-  })
-}
+
+    api.post(endpoints.register, data)
+      .then(res => {
+        console.log(res);
+        navigate('/');
+      })
+      .catch(info => {
+        console.log(info)
+      })
+  }
 
 
   return (
@@ -39,7 +40,7 @@ function onSubmit(formData){
 
         {/* FORM */}
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm bg-gray-800/40 p-8 rounded-xl shadow-lg border border-gray-700">
-          <form className="space-y-6" action={onSubmit}> 
+          <form className="space-y-6" action={onSubmit}>
 
             {/* EMAIL */}
             <div>
