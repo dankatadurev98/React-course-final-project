@@ -14,7 +14,7 @@ export default function Catalog() {
       .then(data => {
         const info = Object.values(data);
         setGames(info);
-        console.log(info)
+        
       })
       .catch(err => console.log(err.message));
   }, []);

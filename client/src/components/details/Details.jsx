@@ -22,12 +22,6 @@ export default function Details() {
   }, [_id])
 
 
-  console.log(_id)
-
-
-
-
-
 
   return (
     <div className="bg-gray-900 min-h-screen text-white flex justify-center py-16 px-6">

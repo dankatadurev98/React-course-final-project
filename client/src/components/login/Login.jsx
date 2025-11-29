@@ -1,7 +1,12 @@
-import { Link } from "react-router";
+import { Link,useNavigate } from "react-router";
 import { api, endpoints } from "../../requests/requests";
+import { AuthContext } from "../../context/authContext";
+import { useContext } from "react";
 
 export default function Login() {
+
+  const {login} = useContext(AuthContext);
+  const navigate = useNavigate()
 
   function onSubmit(formData){
     
@@ -9,7 +14,8 @@ export default function Login() {
 
     api.post(endpoints.login,data)
     .then(res=>{
-      console.log(res)
+     login(res.email,res.accessToken,res._id)
+     navigate('/')
     })
     .catch(info=>{
       console.log(info)

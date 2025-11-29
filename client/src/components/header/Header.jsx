@@ -1,7 +1,7 @@
 'use client'
 import { Link } from 'react-router'
 
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import {
   Dialog,
   DialogPanel,
@@ -13,15 +13,19 @@ import {
   Bars3Icon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
+import { AuthContext } from '../../context/authContext'
 
 export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { isAuthenticated,logout } = useContext(AuthContext);
+
+
 
   return (
     <header className="bg-gray-900">
       <nav aria-label="Global" className="flex w-full items-center justify-between p-6 lg:px-8">
 
-        
+
         {/* LOGO */}
         <div className="flex lg:flex-1">
           <Link to="/" className="-m-1.5 p-1.5">
@@ -49,15 +53,35 @@ export default function Header() {
           <Link to="/" className="text-sm font-semibold text-white hover:text-purple-500">Home</Link>
           <Link to="/about" className="text-sm font-semibold text-white hover:text-purple-500">About</Link>
           <Link to="/catalog" className="text-sm font-semibold text-white hover:text-purple-500">Catalog</Link>
-          <Link to="/addGame" className="text-sm font-semibold text-white hover:text-purple-500">Add Game</Link>
-          <Link to="/register" className="text-sm font-semibold text-white hover:text-purple-500">Register</Link>
+
+          {isAuthenticated && (
+            <Link to="/addGame" className="text-sm font-semibold text-white hover:text-purple-500">
+              Add Game
+            </Link>
+          )}
+
+          {!isAuthenticated && (
+            <Link to="/register" className="text-sm font-semibold text-white hover:text-purple-500">Register</Link>
+
+          )}
         </div>
 
         {/* LOGIN ON RIGHT */}
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link to="/login" className="text-sm font-semibold text-white hover:text-purple-500">
-            Log in →
-          </Link>
+          {!isAuthenticated && (
+            <Link to="/login" className="text-sm font-semibold text-white hover:text-purple-500">
+              Log in →
+            </Link>
+          )}
+          {isAuthenticated && (
+            <button
+              onClick={logout}
+              className="text-sm font-semibold text-white hover:text-purple-500"
+            >
+              Logout
+            </button>
+          )}
+
         </div>
       </nav>
 

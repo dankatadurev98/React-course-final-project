@@ -1,8 +1,10 @@
 import { api,endpoints } from "../../requests/requests";
 
-import { Link } from "react-router";
+import { Link,useNavigate } from "react-router";
 
 export default function Register() {
+
+  const navigate = useNavigate()
 
 function onSubmit(formData){
 
@@ -11,6 +13,7 @@ function onSubmit(formData){
   api.post(endpoints.register,data)
   .then(res=>{
     console.log(res)
+    navigate('/')
   })
   .catch(info=>{
     console.log(info)
