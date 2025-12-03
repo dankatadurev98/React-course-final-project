@@ -38,10 +38,13 @@ export default function Header() {
             <img
               alt="Gaming Store Logo"
               src="/images/1.png"
-              className="h-18 w- object-contain"
+              className="h-18 w-auto object-contain transition-transform duration-300 hover:-translate-y-1 hover:scale-110"
+
+
             />
           </Link>
         </div>
+
 
         {/* MOBILE MENU BUTTON */}
         <div className="flex lg:hidden">
@@ -82,7 +85,7 @@ export default function Header() {
           {isAuthenticated && (
             <div className="flex items-center gap-4">
 
-              <span className="text-sm text-purple-500">
+              <span className="text-sm text-purple-500 font-medium">
                 {user.email}
               </span>
 
@@ -106,13 +109,13 @@ export default function Header() {
 
         <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full bg-gray-900 p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-100/10">
           <div className="flex items-center justify-between">
-            <a href="#" className="-m-1.5 p-1.5">
+            <Link to="#" className="-m-1.5 p-1.5">
               <img
                 alt=""
                 src="/images/1.png"
                 className="h-12 w-auto object-contain"
               />
-            </a>
+            </Link>
 
             <button
               type="button"
@@ -126,27 +129,63 @@ export default function Header() {
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-white/10">
               <div className="space-y-2 py-6">
+                {!isAuthenticated && (
+                  <>
+                    <Link to="/" onClick={() => setMobileMenuOpen(false)} className="block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-white/5">
+                      Home
+                    </Link>
+                    <Link to="/about" onClick={() => setMobileMenuOpen(false)} className="block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-white/5">
+                      About
+                    </Link>
 
-                <a href="#" className="block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-white/5">
-                  Home
-                </a>
-                <a href="#" className="block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-white/5">
-                  About
-                </a>
+                    <Link to="/catalog" onClick={() => setMobileMenuOpen(false)} className="block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-white/5">
+                      Catalog
+                    </Link>
 
-                <a href="#" className="block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-white/5">
-                  Catalog
-                </a>
+                    <Link to="/register" onClick={() => setMobileMenuOpen(false)} className="block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-white/5">
+                      Register
+                    </Link>
 
-                <a href="#" className="block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-white/5">
-                  Register
-                </a>
+                    <Link to="/login" onClick={() => setMobileMenuOpen(false)} className="block rounded-lg px-3 py-2.5 text-base font-semibold text-white hover:bg-white/5">
+                      Log in
+                    </Link>
+                  </>
+                )
+                }
+                {isAuthenticated && (
+                  <>
+                    <Link to="/" onClick={() => setMobileMenuOpen(false)} className="block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-white/5">
+                      Home
+                    </Link>
+                    <Link to="/about" onClick={() => setMobileMenuOpen(false)} className="block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-white/5">
+                      About
+                    </Link>
+
+                    <Link to="/catalog" onClick={() => setMobileMenuOpen(false)} className="block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-white/5">
+                      Catalog
+                    </Link>
+                    <Link to="/addGame" onClick={() => setMobileMenuOpen(false)} className="block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-white/5">
+                      Add Game
+                    </Link>
+
+                    <button
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        logout();
+                        navigate('/');
+                      }}
+                      className="block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-white/5"
+                    >
+                      Logout
+                    </button>
+                  </>
+                )}
+
+
               </div>
 
               <div className="py-6">
-                <a href="#" className="block rounded-lg px-3 py-2.5 text-base font-semibold text-white hover:bg-white/5">
-                  Log in
-                </a>
+
               </div>
             </div>
           </div>
