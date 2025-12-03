@@ -17,10 +17,10 @@ import { AuthContext } from '../../context/authContext'
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { isAuthenticated,logout } = useContext(AuthContext);
+  const { isAuthenticated, logout, user } = useContext(AuthContext);
   const navigate = useNavigate()
 
-  function logoutHandle(){
+  function logoutHandle() {
     logout();
     navigate('/');
   }
@@ -80,14 +80,22 @@ export default function Header() {
             </Link>
           )}
           {isAuthenticated && (
-            <button
-              onClick={logoutHandle}
-               href='/'
-              className="text-sm font-semibold text-white hover:text-purple-500"
-            >
-              Logout
-            </button>
+            <div className="flex items-center gap-4">
+
+              <span className="text-sm text-purple-500">
+                {user.email}
+              </span>
+
+              <button
+                onClick={logoutHandle}
+                className="text-sm font-semibold text-white hover:text-purple-500 cursor-pointer"
+              >
+                Logout
+              </button>
+
+            </div>
           )}
+
 
         </div>
       </nav>
