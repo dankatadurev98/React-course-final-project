@@ -1,14 +1,17 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { api, endpoints } from "../../requests/requests";
 
 
-import { Link, useParams } from "react-router";
+import { Link, useNavigate, useParams } from "react-router";
+import { AuthContext } from "../../context/authContext";
 
 export default function Details() {
 
 
+  const { isAuthenticated,user } = useContext(AuthContext)
   const { _id } = useParams();
   const [game, setGame] = useState({})
+  const navigate = useNavigate()
 
 
   useEffect(() => {
@@ -17,9 +20,20 @@ export default function Details() {
         setGame(res)
       })
       .catch(info => {
-        console.log(info)
+        console.log(`A problem with GET Request on details!`)
       })
   }, [_id])
+
+  function onDeleteHandler(){
+    api.del(endpoints.gamesById(_id),user.token)
+    .then(res=>{
+      navigate('/catalog')
+      console.log(`Successfull DELETE Request!`)
+    })
+    .catch(data=>{
+      console.log(`A problem with the delete request!`)
+    })
+  }
 
 
 
@@ -32,8 +46,8 @@ export default function Details() {
         {/* BANNER */}
         <div className="relative w-full h-72 lg:h-80 overflow-hidden">
           <img
-            src=""
-            alt=""
+            src="#"
+            alt="#"
             className="w-full h-full object-cover opacity-40 blur-sm scale-200"
           />
           <div className="absolute inset-0 flex items-center justify-center">
@@ -81,22 +95,25 @@ export default function Details() {
                 </button>
               </Link>
 
+              {isAuthenticated &&
+                (
+                  <>
+                    <Link to={`/catalog/${_id}/details/edit`}>
+                      <button className="px-6 py-3 bg-blue-600 text-white rounded-md font-bold hover:bg-blue-700 transition">
+                        Edit
+                      </button>
+                    </Link>
 
-              <Link to={`/catalog/${_id}/details/edit`}>
-                <button className="px-6 py-3 bg-blue-600 text-white rounded-md font-bold hover:bg-blue-700 transition">
-                  Edit
-                </button>
+                    <button className="px-6 py-3 bg-red-600 text-white rounded-md font-bold hover:bg-red-700 transition" onClick={onDeleteHandler}>
+                      Delete
+                    </button>
+                  </>
+                )
+              }
 
-
-              </Link>
-
-
-
-
-              <button className="px-6 py-3 bg-red-600 text-white rounded-md font-bold hover:bg-red-700 transition">
-                Delete
-              </button>
             </div>
+
+
 
           </div>
 

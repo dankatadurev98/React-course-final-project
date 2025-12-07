@@ -24,13 +24,11 @@ export default function AddGame() {
       date: data.date,
       summary: data.summary,
     }
-    console.log(fields)
-    console.log(user.token);
+    
     
 
     api.post(endpoints.games, fields, user.token)
       .then(res => {
-        console.log(res);
         console.log('Successful POST Request!');
         navigator('/catalog')
       })
