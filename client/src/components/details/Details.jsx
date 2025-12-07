@@ -12,6 +12,7 @@ export default function Details() {
   const { _id } = useParams();
   const [game, setGame] = useState({})
   const navigate = useNavigate()
+   const isUser = user?._id === game._ownerId;
 
 
   useEffect(() => {
@@ -33,8 +34,12 @@ export default function Details() {
     .catch(data=>{
       console.log(`A problem with the delete request!`)
     })
+
+    
   }
 
+
+  
 
 
   return (
@@ -95,7 +100,7 @@ export default function Details() {
                 </button>
               </Link>
 
-              {isAuthenticated &&
+              {isUser &&
                 (
                   <>
                     <Link to={`/catalog/${_id}/details/edit`}>

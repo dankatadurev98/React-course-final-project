@@ -2,9 +2,12 @@ import { useEffect, useState } from "react";
 import OneCard from "../oneCard/OneCard";
 import { api, endpoints } from "../../requests/requests";
 
+
 export default function Catalog() {
 
   const [games, setGames] = useState([]);
+
+  
 
 
 
@@ -14,6 +17,7 @@ export default function Catalog() {
       .then(data => {
         const info = Object.values(data);
         setGames(info);
+        
       })
       .catch(err => console.log(err.message));
   }, []);
