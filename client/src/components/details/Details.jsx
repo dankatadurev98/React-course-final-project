@@ -8,11 +8,11 @@ import { AuthContext } from "../../context/authContext";
 export default function Details() {
 
 
-  const { isAuthenticated,user } = useContext(AuthContext)
+  const { user } = useContext(AuthContext)
   const { _id } = useParams();
   const [game, setGame] = useState({})
   const navigate = useNavigate()
-   const isUser = user?._id === game._ownerId;
+  const isUser = user?._id === game._ownerId;
 
 
   useEffect(() => {
@@ -25,21 +25,21 @@ export default function Details() {
       })
   }, [_id])
 
-  function onDeleteHandler(){
-    api.del(endpoints.gamesById(_id),user.token)
-    .then(res=>{
-      navigate('/catalog')
-      console.log(`Successfull DELETE Request!`)
-    })
-    .catch(data=>{
-      console.log(`A problem with the delete request!`)
-    })
+  function onDeleteHandler() {
+    api.del(endpoints.gamesById(_id), user.token)
+      .then(res => {
+        navigate('/catalog')
+        console.log(`Successfull DELETE Request!`)
+      })
+      .catch(data => {
+        console.log(`A problem with the delete request!`)
+      })
 
-    
+
   }
 
 
-  
+
 
 
   return (
