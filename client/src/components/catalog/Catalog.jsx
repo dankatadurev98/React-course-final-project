@@ -7,11 +7,8 @@ export default function Catalog() {
 
   const [games, setGames] = useState([]);
 
+
   
-
-
-
-
   useEffect(() => {
     api.get(endpoints.games)
       .then(data => {

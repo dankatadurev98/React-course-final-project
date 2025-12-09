@@ -4,11 +4,12 @@ import { api, endpoints } from "../../requests/requests";
 
 import { Link, useNavigate, useParams } from "react-router";
 import { AuthContext } from "../../context/authContext";
+import Comments from "../comments/Comments";
 
 export default function Details() {
 
 
-  const { user } = useContext(AuthContext)
+  const { user, isAuthenticated } = useContext(AuthContext)
   const { _id } = useParams();
   const [game, setGame] = useState({})
   const navigate = useNavigate()
@@ -37,10 +38,6 @@ export default function Details() {
 
 
   }
-
-
-
-
 
   return (
     <div className="bg-gray-900 min-h-screen text-white flex justify-center py-16 px-6">
@@ -117,12 +114,15 @@ export default function Details() {
               }
 
             </div>
-
-
-
           </div>
-
         </div>
+        {isAuthenticated && (
+          <>
+            <Comments />
+          </>
+
+        )}
+
       </div>
     </div>
   );
