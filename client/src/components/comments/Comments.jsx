@@ -1,6 +1,8 @@
 
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/authContext";
+import CommentSection from "../commentsSection/CommentSection";
+
 
 export default function Comments() {
 
@@ -58,31 +60,11 @@ export default function Comments() {
             {/* RENDER COMMENTS */}
             <div className="space-y-6">
 
-                {comments.length === 0 ? (
-                    <p className="text-gray-500 italic text-center">
-                        No comments yet.
-                    </p>
-                ) : (
-                    comments.map((comment) => (
-                        <div
-                            key={comment.id}
-                            className="bg-gray-900 border border-gray-800 rounded-2xl p-5 shadow-lg mb-4"
-                        >
-                            <div className="flex justify-between mb-2">
-                                <span className="text-purple-400 font-semibold">
-                                    {comment.user}
-                                </span>
-                                <span className="text-gray-500 text-sm">
-                                    {comment.time}
-                                </span>
+                
+                    {comments.map((comment)=><CommentSection key={comment.id} {...comment}/>)}
+                
 
-                            </div>
-                            <p className="text-gray-200">
-                                {comment.text}
-                            </p>
-                        </div>
-                    ))
-                )}
+                
 
             </div>
         </section>
