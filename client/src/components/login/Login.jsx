@@ -1,25 +1,29 @@
-import { Link,useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { api, endpoints } from "../../requests/requests";
 import { AuthContext } from "../../context/authContext";
 import { useContext } from "react";
+import { toast } from "react-hot-toast";
+
 
 export default function Login() {
 
-  const {login} = useContext(AuthContext);
+  const { login } = useContext(AuthContext);
   const navigate = useNavigate()
 
-  function onSubmit(formData){
-    
+  function onSubmit(formData) {
+
     let data = Object.fromEntries(formData)
 
-    api.post(endpoints.login,data)
-    .then(res=>{
-     login(res.email,res.accessToken,res._id)
-     navigate('/')
-    })
-    .catch(info=>{
-      console.log(info)
-    })
+    api.post(endpoints.login, data)
+      .then(res => {
+        login(res.email, res.accessToken, res._id)
+        toast.success('Successfull Login!');
+        navigate('/')
+      })
+      .catch(info => {
+        console.log(info)
+        toast.error('Unsuccessfull Login!')
+      })
   }
   return (
     <>

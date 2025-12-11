@@ -12,10 +12,16 @@ import Details from "./components/details/Details"
 import Edit from "./components/edit/Edit"
 
 
+
+import { Toaster } from 'react-hot-toast';
+
+
 function App() {
 
   return (
     <div>
+      
+      <Toaster />
       <Header />
 
       <Routes>

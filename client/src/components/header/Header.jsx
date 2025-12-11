@@ -1,6 +1,6 @@
 'use client'
 import { Link, useNavigate } from 'react-router'
-
+import {toast} from 'react-hot-toast'
 import { useContext, useState } from 'react'
 
 import {
@@ -17,6 +17,9 @@ export default function Header() {
 
   function logoutHandle() {
     logout();
+    toast('Logged Out!', {
+  icon: '👏',
+});
     navigate('/');
   }
 

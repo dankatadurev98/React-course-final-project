@@ -1,3 +1,4 @@
+import { toast } from "react-hot-toast";
 import { api, endpoints } from "../../requests/requests";
 
 import { Link, useNavigate } from "react-router";
@@ -14,10 +15,12 @@ export default function Register() {
     api.post(endpoints.register, data)
       .then(res => {
         console.log(res);
+        toast.success('Successfull Register!')
         navigate('/');
       })
       .catch(info => {
         console.log(info)
+        toast.error('Unsuccessful Register!')
       })
   }
 
