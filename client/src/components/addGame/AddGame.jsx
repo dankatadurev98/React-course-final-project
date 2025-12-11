@@ -52,6 +52,7 @@ export default function AddGame() {
         <input
           type="text"
           name="title"
+          required
           className="w-full p-3 rounded-md bg-gray-700 text-white mb-4 focus:outline-none focus:ring focus:ring-purple-500"
         />
 
@@ -60,6 +61,7 @@ export default function AddGame() {
         <input
           type="text"
           name="genre"
+          required
           className="w-full p-3 rounded-md bg-gray-700 text-white mb-4 focus:outline-none focus:ring focus:ring-purple-500"
         />
 
@@ -68,6 +70,7 @@ export default function AddGame() {
         <input
           type="text"
           name="imageUrl"
+          required
           className="w-full p-3 rounded-md bg-gray-700 text-white mb-4 focus:outline-none focus:ring focus:ring-purple-500"
         />
 
@@ -76,6 +79,7 @@ export default function AddGame() {
         <input
           type="date"
           name="date"
+          required
           className="w-full p-3 rounded-md bg-gray-700 text-white mb-4 focus:outline-none focus:ring focus:ring-purple-500"
         />
 
@@ -84,6 +88,7 @@ export default function AddGame() {
         <textarea
           name="summary"
           rows="4"
+          required
           className="w-full p-3 rounded-md bg-gray-700 text-white mb-6 focus:outline-none focus:ring focus:ring-purple-500"
         ></textarea>
 

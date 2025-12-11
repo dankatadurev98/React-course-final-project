@@ -36,11 +36,6 @@ export default function Edit(){
      console.log(`A problem with edit put request!`);
      
     })
-
-    
-    
-
-    
     
   }
 
@@ -59,6 +54,7 @@ export default function Edit(){
         defaultValue={data.title}
           type="text"
           name="title"
+          required
           className="w-full p-3 rounded-md bg-gray-700 text-white mb-4 focus:outline-none focus:ring focus:ring-purple-500"
         />
 
@@ -68,6 +64,7 @@ export default function Edit(){
         defaultValue={data.genre}
           type="text"
           name="genre"
+          required
           className="w-full p-3 rounded-md bg-gray-700 text-white mb-4 focus:outline-none focus:ring focus:ring-purple-500"
         />
 
@@ -77,6 +74,7 @@ export default function Edit(){
         defaultValue={data.imageUrl}
           type="text"
           name="imageUrl"
+          required
           className="w-full p-3 rounded-md bg-gray-700 text-white mb-4 focus:outline-none focus:ring focus:ring-purple-500"
         />
 
@@ -86,6 +84,7 @@ export default function Edit(){
         defaultValue={data.date}
           type="date"
           name="date"
+          required
           className="w-full p-3 rounded-md bg-gray-700 text-white mb-4 focus:outline-none focus:ring focus:ring-purple-500"
         />
 
@@ -95,6 +94,7 @@ export default function Edit(){
         defaultValue={data.summary}
           name="summary"
           rows="4"
+          required
           className="w-full p-3 rounded-md bg-gray-700 text-white mb-6 focus:outline-none focus:ring focus:ring-purple-500"
         ></textarea>
 
