@@ -42,7 +42,6 @@ export default function AddGame() {
   return (
     <div className="bg-gray-900 min-h-screen flex items-center justify-center px-6">
       <form className="bg-gray-800 p-8 rounded-xl shadow-lg w-full max-w-xl" onSubmit={onSubmitForm}>
-
         <h2 className="text-3xl font-extrabold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-purple-600">
           Add New Game
         </h2>

@@ -8,13 +8,13 @@ export default function Catalog() {
   const [games, setGames] = useState([]);
 
 
-  
+
   useEffect(() => {
     api.get(endpoints.games)
       .then(data => {
         const info = Object.values(data);
         setGames(info);
-        
+
       })
       .catch(err => console.log(err.message));
   }, []);
@@ -23,21 +23,32 @@ export default function Catalog() {
   return (
     <div className="bg-gray-900 min-h-screen">
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-        {games.length > 0 ? 
-      <h2 className="text-3xl font-bold tracking-tight text-white text-center pb-10 ">Games</h2> : '' 
-      }
-        
+        {games.length > 0 ?
+          <h2 className="text-3xl font-bold tracking-tight text-white text-center pb-10 ">Games</h2> : ''
+        }
+
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-          
+
           {games.length > 0 ? (
-            
+
             games.map(game => <OneCard key={game._id} {...game} />)
           ) : (
             <div className="col-span-full flex justify-center py-10">
               <h2 className="text-3xl font-bold text-white text-center">
                 There are no games
               </h2>
+              <img
+                src='/images/3.png'
+                alt="Controller right"
+                className="
+          hidden lg:block
+          absolute center-10 top-1/2 -translate-y-1/2
+          w-64 opacity-80 rotate-[15deg] scale-x-[-1]
+          pointer-events-none
+        "
+              />
             </div>
+
           )}
 
 

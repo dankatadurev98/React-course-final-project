@@ -3,7 +3,28 @@ import { Link } from "react-router"
 export default function Home() {
   return (
     <section className="relative isolate overflow-hidden bg-gray-900 px-6 pt-24 pb-24 lg:px-8 min-h-screen flex items-start">
+  <img
+        src="/images/2.png"
+        alt="Controller left"
+        className="
+          hidden lg:block
+          absolute left-10 top-1/2 -translate-y-1/2
+          w-64 opacity-80 rotate-[-15deg]
+          pointer-events-none
+        "
+      />
 
+      {/* Right controller */}
+      <img
+        src='/images/2.png'
+        alt="Controller right"
+        className="
+          hidden lg:block
+          absolute right-10 top-1/2 -translate-y-1/2
+          w-64 opacity-80 rotate-[15deg] scale-x-[-1]
+          pointer-events-none
+        "
+      />
 
       <div
         aria-hidden="true"
