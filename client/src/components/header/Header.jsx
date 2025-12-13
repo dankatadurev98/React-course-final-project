@@ -59,6 +59,7 @@ export default function Header() {
         <div className="hidden lg:flex lg:gap-x-12">
           <Link to="/" className="text-sm font-semibold text-white hover:text-purple-500">Home</Link>
           <Link to="/about" className="text-sm font-semibold text-white hover:text-purple-500">About</Link>
+          <Link to="/contacts" className="text-sm font-semibold text-white hover:text-purple-500">Contacts</Link>
           <Link to="/catalog" className="text-sm font-semibold text-white hover:text-purple-500">Catalog</Link>
 
           {isAuthenticated && (

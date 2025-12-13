@@ -67,6 +67,15 @@ export default function Edit(){
           required
           className="w-full p-3 rounded-md bg-gray-700 text-white mb-4 focus:outline-none focus:ring focus:ring-purple-500"
         />
+          {/* PRICE */}
+        <label className="block text-purple-300 mb-2">Price:</label>
+        <input
+        defaultValue={data.price}
+          type="number"
+          name="price"
+          required
+          className="w-full p-3 rounded-md bg-gray-700 text-white mb-4 focus:outline-none focus:ring focus:ring-purple-500"
+        />
 
         {/* IMAGE URL */}
         <label className="block text-purple-300 mb-2">Image URL:</label>

@@ -10,6 +10,7 @@ import Home from "./components/home/Home"
 import AddGame from "./components/addGame/AddGame"
 import Details from "./components/details/Details"
 import Edit from "./components/edit/Edit"
+import Contacts from "./components/contacts/Contacts"
 
 
 
@@ -27,6 +28,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path='/about' element={<About />} />
+        <Route path="/contacts" element={<Contacts />}/>
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
         <Route path='/catalog' element={<Catalog />} />

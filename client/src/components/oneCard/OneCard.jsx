@@ -4,6 +4,7 @@ export default function OneCard({
   _id,
   imageUrl,
   title,
+  price
 }) {
   return (
     <div className="group relative">
@@ -35,6 +36,7 @@ export default function OneCard({
 
       <div className="mt-5 flex justify-between">
         <h3 className="text-sm text-white">{title}</h3>
+        <h3 className="text-sm text-white">{price} $</h3>
       </div>
     </div>
   );

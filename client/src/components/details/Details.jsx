@@ -80,11 +80,18 @@ export default function Details() {
               <span className="text-purple-400 font-semibold">Genre: </span>{game.genre}
             </p>
 
+             <p className="text-lg">
+              <span className="text-purple-400 font-semibold">Price: </span>{game.price} $
+            </p>
+
             <p className="text-lg">
               <span className="text-purple-400 font-semibold">Release Date: </span>{game.date}
             </p>
 
             <p className="text-gray-300 leading-relaxed">
+              <p className="text-purple-400 font-semibold">
+                Summary
+              </p>
               {game.summary}
             </p>
 
