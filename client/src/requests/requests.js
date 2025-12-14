@@ -5,7 +5,6 @@ const BASE_URL = 'http://localhost:3030';
 const endpoints = {
     games: `${BASE_URL}/data/games`,
     gamesById: (id) => `${BASE_URL}/data/games/${id}`,
-    
     login: `${BASE_URL}/users/login`,
     register: `${BASE_URL}/users/register`,
     logout: `${BASE_URL}/users/logout`,

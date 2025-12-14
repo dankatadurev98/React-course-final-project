@@ -5,16 +5,16 @@ import { useContext } from "react";
 
 export default function AddGame() {
 
-  const { user } = useContext(AuthContext)
-  let navigator = useNavigate();
+  const { user } = useContext(AuthContext) // - взимаме си user от контекста
+  let navigator = useNavigate(); // - изпозлваме този хуук за да можем да навигираме след успешно създадена игра 
 
   function onSubmitForm(event) {
-    event.preventDefault();
+    event.preventDefault(); // предотвратява страницата от презареждане
 
-    let info = new FormData(event.target)
+    let info = new FormData(event.target) // - извличаме данните от формата
 
 
-    let data = Object.fromEntries(info)
+    let data = Object.fromEntries(info) // - обръщаме данните от масив в обект
 
     let fields = {
       title: data.title,
@@ -27,7 +27,7 @@ export default function AddGame() {
     
     
 
-    api.post(endpoints.games, fields, user.token)
+    api.post(endpoints.games, fields, user.token) // - правим ПОСТ заяка като използваме рекуест функцията 
       .then(res => {
         console.log('Successful POST Request!');
         navigator('/catalog')

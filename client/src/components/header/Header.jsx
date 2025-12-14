@@ -1,6 +1,6 @@
 'use client'
 import { Link, useNavigate } from 'react-router'
-import {toast} from 'react-hot-toast'
+import { toast } from 'react-hot-toast'
 import { useContext, useState } from 'react'
 
 import {
@@ -18,8 +18,8 @@ export default function Header() {
   function logoutHandle() {
     logout();
     toast('Logged Out!', {
-  icon: '👏',
-});
+      icon: '👏',
+    });
     navigate('/');
   }
 
@@ -64,13 +64,13 @@ export default function Header() {
 
           {isAuthenticated && (
             <>
-            <Link to="/addGame" className="text-sm font-semibold text-white hover:text-purple-500">
-              Add Game
-            </Link>
+              <Link to="/addGame" className="text-sm font-semibold text-white hover:text-purple-500">
+                Add Game
+              </Link>
 
-            <Link to="/myGames" className="text-sm font-semibold text-white hover:text-purple-500">
-              My Games
-            </Link>
+              <Link to="/myGames" className="text-sm font-semibold text-white hover:text-purple-500">
+                My Games
+              </Link>
             </>
           )}
 

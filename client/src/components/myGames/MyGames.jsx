@@ -1,66 +1,69 @@
-import { useEffect, useState,useContext } from "react"
+import { useEffect, useState, useContext } from "react"
 import { api, endpoints } from "../../requests/requests"
 
 import OneCard from "../oneCard/OneCard"
 import { AuthContext } from "../../context/authContext"
 
 
-export default function MyGames(){
-   
-const {user} = useContext(AuthContext);
+export default function MyGames() {
 
-    const [games,setGames] = useState([])
+    const { user } = useContext(AuthContext);
 
-    useEffect(()=>{
+    const [games, setGames] = useState([]);
+
+
+
+    useEffect(() => {
         api.get(endpoints.games)
-        .then(res=>{
-            const info = Object.values(res)
-           let filterGames = info.filter(game=>game._ownerId === user._id)
-            setGames(filterGames);
-            
-            
-        })
-        .catch(data=>{
-            console.log(data);
-            
-        })
-    },[user._id])
+            .then(res => {
+                console.log(res);
+                console.log(user);
+
+                const info = Object.values(res)
+                let filterGames = info.filter(game => game._ownerId === user._id)
+                setGames(filterGames);
+            })
+            .catch(data => {
+                console.error('Problem with myGames get request!')
+
+            })
+    }, [user._id])
 
     return (
         <div className="bg-gray-900 min-h-screen">
-          <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-            {games.length > 0 ?
-              <h2 className="text-3xl font-bold tracking-tight text-white text-center pb-10 ">Games</h2> : ''
-            }
-    
-            <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-    
-              {games.length > 0 ? (
-    
-                games.map(game => <OneCard key={game._id} {...game} />)
-              ) : (
-                <div className="col-span-full flex justify-center py-10">
-                  <h2 className="text-3xl font-bold text-white text-center">
-                    There are no games
-                  </h2>
-                  <img
-                    src='/images/3.png'
-                    alt="Controller right"
-                    className="
+            <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+                {games.length > 0 ?
+                    <h2 className="text-3xl font-bold tracking-tight text-white text-center pb-10 ">Games</h2> : ''
+                }
+
+                <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+
+                    {games.length > 0 ? (
+
+                        games.map(game => <OneCard key={game._id} {...game} />)
+                    ) : (
+                        <div className="col-span-full flex justify-center py-10">
+                            <h2 className="text-3xl font-bold text-white text-center">
+                                There are no games
+                            </h2>
+                            <img
+                                src='/images/3.png'
+                                alt="Controller right"
+                                className="
               hidden lg:block
               absolute center-10 top-1/2 -translate-y-1/2
               w-64 opacity-80 rotate-[15deg] scale-x-[-1]
               pointer-events-none
             "
-                  />
+                            />
+                        </div>
+
+                    )}
+
+
+
                 </div>
-    
-              )}
-    
-    
-    
             </div>
-          </div>
         </div>
-      )
+    )
 }

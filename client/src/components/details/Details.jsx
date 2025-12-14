@@ -22,7 +22,7 @@ export default function Details() {
         setGame(res)
       })
       .catch(info => {
-        console.log(`A problem with GET Request on details!`)
+        console.error(`A problem with GET Request on details!`)
       })
   }, [_id])
 
