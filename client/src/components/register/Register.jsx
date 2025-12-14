@@ -14,12 +14,11 @@ export default function Register() {
 
     api.post(endpoints.register, data)
       .then(res => {
-        console.log(res);
         toast.success('Successfull Register!')
-        navigate('/');
+        navigate('/login');
       })
-      .catch(info => {
-        console.log(info)
+      .catch(err => {
+        console.log(err)
         toast.error('Unsuccessful Register!')
       })
   }
