@@ -65,7 +65,11 @@ export default function Header() {
           {isAuthenticated && (
             <Link to="/addGame" className="text-sm font-semibold text-white hover:text-purple-500">
               Add Game
+            </Link>,
+            <Link to="/myGames" className="text-sm font-semibold text-white hover:text-purple-500">
+              My Games
             </Link>
+            
           )}
 
           {!isAuthenticated && (

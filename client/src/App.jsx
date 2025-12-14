@@ -15,6 +15,7 @@ import Contacts from "./components/contacts/Contacts"
 
 
 import { Toaster } from 'react-hot-toast';
+import MyGames from "./components/myGames/MyGames"
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
         <Route path='/addGame' element={<AddGame/>}/>
         <Route path='/catalog/:_id/details' element={<Details/>}/>
         <Route path="/catalog/:_id/details/edit" element={<Edit/>}/>
+        <Route path="/myGames" element={<MyGames />}/>
       </Routes>
       <Footer />
 

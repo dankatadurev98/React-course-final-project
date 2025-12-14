@@ -1,12 +1,66 @@
-# React + Vite
+# Gaming Store SPA 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Description
+This project is a Single Page Application (SPA) built with **React**, representing a gaming store platform.  
+Guests can browse games and view details, while authenticated users can create, edit, delete, and manage their own games.
 
-Currently, two official plugins are available:
+The application uses **client-side routing**, **authentication**, and **RESTful API communication** with a backend service.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Public Part (Guest Users)
+- Home page
+- About page
+- Contacts page
+- Catalog (list of all games)
+- Game Details
+- Login
+- Register
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Guests can view games but cannot create, edit, or delete records.
+
+---
+
+## Private Part (Authenticated Users)
+- Add Game
+- Edit Game (only for the owner)
+- Delete Game (only for the owner)
+- My Games (list of games created by the logged-in user)
+- Logout
+
+---
+
+## Dynamic Pages
+The application contains more than 4 dynamic pages:
+1. **Catalog** – displays all games fetched from the server
+2. **Game Details** – displays detailed information for a selected game
+3. **Add Game** – form for creating new games
+4. **Edit Game** – form for editing existing games
+5. **My Games** – personalized page showing games created by the logged-in user
+
+---
+
+## Project Architecture
+
+src/
+├── components/
+│ ├── home/
+│ ├── catalog/
+│ ├── details/
+│ ├── addGame/
+│ ├── editGame/
+│ ├── myGames/
+│ └── common/
+│ └── OneCard.jsx
+│
+├── context/
+│ └── authContext.jsx
+│
+├── hooks/
+│ └── useLocalStorage.js
+│
+├── requests/
+│ └── requests.js
+│
+├── App.jsx
+└── main.jsx
