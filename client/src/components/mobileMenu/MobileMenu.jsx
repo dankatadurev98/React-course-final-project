@@ -82,12 +82,18 @@ export default function MobileMenu({mobileMenuOpen,setMobileMenuOpen}){
                             <Link to="/about" onClick={() => setMobileMenuOpen(false)} className="block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-white/5">
                               About
                             </Link>
+                             <Link to="/contacts" onClick={() => setMobileMenuOpen(false)} className="block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-white/5">
+                             Contacts
+                            </Link>
         
                             <Link to="/catalog" onClick={() => setMobileMenuOpen(false)} className="block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-white/5">
                               Catalog
                             </Link>
                             <Link to="/addGame" onClick={() => setMobileMenuOpen(false)} className="block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-white/5">
                               Add Game
+                            </Link>
+                             <Link to="/myGames" onClick={() => setMobileMenuOpen(false)} className="block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-white/5">
+                              My Games
                             </Link>
         
                             <button
