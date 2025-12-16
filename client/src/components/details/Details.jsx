@@ -89,10 +89,10 @@ export default function Details() {
             </p>
 
             <p className="text-gray-300 leading-relaxed">
-              <p className="text-purple-400 font-semibold">
-                Summary
-              </p>
-              {game.summary}
+              <span className="text-purple-400 font-semibold pr-1">
+                Summary: 
+              </span>
+               {game.summary}
             </p>
 
             {/* BUTTONS */}

@@ -16,9 +16,6 @@ export default function MyGames() {
     useEffect(() => {
         api.get(endpoints.games)
             .then(res => {
-                console.log(res);
-                console.log(user);
-
                 const info = Object.values(res)
                 let filterGames = info.filter(game => game._ownerId === user._id)
                 setGames(filterGames);

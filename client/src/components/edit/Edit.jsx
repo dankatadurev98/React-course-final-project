@@ -27,8 +27,7 @@ export default function Edit(){
     
     api.put(endpoints.gamesById(_id),data,user.token)
     .then(res=>{
-      navigator('/catalog')
-      console.log(res);
+      navigator('/catalog');
     })
     .catch(err=>{
      console.log(`A problem with edit put request!`);
