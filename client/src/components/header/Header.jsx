@@ -1,17 +1,14 @@
-'use client'
+
 import { Link, useNavigate } from 'react-router'
 import { toast } from 'react-hot-toast'
-import { useContext, useState } from 'react'
+import { useContext, } from 'react'
 
-import {
-  Bars3Icon,
-  XMarkIcon,
-} from '@heroicons/react/24/outline'
+
 import { AuthContext } from '../../context/authContext'
-import MobileMenu from '../mobileMenu/MobileMenu'
+
 
 export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  
   const { isAuthenticated, logout, user } = useContext(AuthContext);
   const navigate = useNavigate()
 
@@ -43,17 +40,6 @@ export default function Header() {
           </Link>
         </div>
 
-
-        {/* MOBILE MENU BUTTON */}
-        <div className="flex lg:hidden">
-          <button
-            type="button"
-            onClick={() => setMobileMenuOpen(true)}
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-400"
-          >
-            <Bars3Icon aria-hidden="true" className="size-6" />
-          </button>
-        </div>
 
         {/* DESKTOP NAVIGATION (NO POPOVER) */}
         <div className="hidden lg:flex lg:gap-x-12">
@@ -108,11 +94,7 @@ export default function Header() {
         </div>
       </nav>
 
-      {/* MOBILE MENU */}
-      <MobileMenu
-        mobileMenuOpen={mobileMenuOpen}
-        setMobileMenuOpen={setMobileMenuOpen}
-      />
+      
 
 
     </header>
