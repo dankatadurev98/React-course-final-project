@@ -18,7 +18,7 @@ export default function Header() {
   function logoutHandle() {
     logout();
     toast('Logged Out!', {
-      icon: '👏',
+      icon: '🚪',
     });
     navigate('/');
   }

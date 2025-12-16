@@ -16,7 +16,7 @@ export default function Register() {
       .then(res => {
         console.log(res);
         toast.success('Successfull Register!')
-        navigate('/');
+        navigate('/login');
       })
       .catch(info => {
         console.log(info)
