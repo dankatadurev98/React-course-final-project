@@ -40,12 +40,7 @@ export default function Catalog() {
               <img
                 src='/images/3.png'
                 alt="Controller right"
-                className="
-          hidden lg:block
-          absolute center-10 top-1/2 -translate-y-1/2
-          w-64 opacity-80 rotate-[15deg] scale-x-[-1]
-          pointer-events-none
-        "
+                className="   hidden lg:block  absolute center-10 top-1/2 -translate-y-1/2  w-64 opacity-80 rotate-[15deg] scale-x-[-1]  pointer-events-none"
               />
             </div>
 

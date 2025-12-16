@@ -15,8 +15,6 @@ export default function Edit(){
     api.get(endpoints.gamesById(_id))
     .then(res=>{
       setData(res)
-      
-      
     })
     .catch(data=>{
       console.log(`problem with edit form fetch of data`)
@@ -32,8 +30,10 @@ export default function Edit(){
       navigator('/catalog')
       console.log(res);
     })
-    .catch(data=>{
+    .catch(err=>{
      console.log(`A problem with edit put request!`);
+     console.log(err);
+     
      
     })
     
