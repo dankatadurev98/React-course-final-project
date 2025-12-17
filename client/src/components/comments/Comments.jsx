@@ -7,54 +7,52 @@ import { api, endpoints } from "../../requests/requests";
 
 export default function Comments({ gameId }) {
 
-    const { user,isAuthenticated } = useContext(AuthContext);
+    const { user, isAuthenticated } = useContext(AuthContext);
 
     const [text, setText] = useState('');
     const [comments, setComments] = useState([]);
-    
 
-    useEffect(()=>{
+
+    useEffect(() => {
         api.get(endpoints.comments)
-        .then(res=>{        
-            
-            
-            setComments(res)
+            .then(res => {
+                
+                
+               let realRes = res.filter(comment=>comment.gameId === gameId)
+                setComments(realRes)
+            })
+            .catch(err => {
+                console.log(err);
 
-        })
-        .catch(err=>{
-            console.log(err);
-            
-        })
-    },[gameId])
+            })
+    }, [gameId])
 
     function commentHandler(event) {
         setText(event.target.value);
     };
 
     function submitComments() {
+
+
         if (text.trim() === '') {
             return;
         };
 
 
-        api.post(endpoints.comments, { text,
-             gameId,
-            email:user.email,
+        api.post(endpoints.comments, {
+            text,
+            gameId,
+            email: user.email,
             time: new Date().toLocaleString()
-            ,}, user.token)
+            ,
+        }, user.token)
             .then(newComments => {
                 setComments((oldComments) => [...oldComments, newComments]);
                 setText('');
-                
-                
             })
             .catch(err => {
                 console.log(err)
             })
-
-
-
-
 
     }
 
@@ -66,7 +64,7 @@ export default function Comments({ gameId }) {
             </h2>
 
             {/* INPUT */}
-            {isAuthenticated ?   <div className="mb-10">
+            {isAuthenticated ? <div className="mb-10">
                 <textarea
                     onChange={commentHandler}
                     value={text}
@@ -75,27 +73,19 @@ export default function Comments({ gameId }) {
                     className="w-full rounded-xl bg-gray-900 text-white p-4 resize-none border border-gray-700"
                 />
 
-
- <button
+                <button
                     onClick={submitComments}
                     className="mt-3 px-6 py-2 rounded-xl bg-purple-600 text-white font-semibold hover:bg-purple-700"
                 >
-                    
                     Post Comment
-                </button> 
-               
+                </button>
+
             </div> : ''}
-          
+
 
             {/* RENDER COMMENTS */}
             <div className="space-y-6">
-
-
                 {comments.map((comment) => <CommentSection key={comment._id} {...comment} />)}
-
-
-
-
             </div>
         </section>
     );
