@@ -1,8 +1,14 @@
+import { useContext } from "react"
+import { AuthContext } from "../../context/authContext"
+
 export default function CommentSection({
-    user,
-    time,
-    text
+    gameId,
+    email,
+    text,
+    time
 }) {
+
+    const { isAuthenticated} = useContext(AuthContext)
 
     return (
 
@@ -11,7 +17,7 @@ export default function CommentSection({
         >
             <div className="flex justify-between mb-2">
                 <span className="text-purple-400 font-semibold">
-                    {user}
+                {email}
                 </span>
                 <span className="text-gray-500 text-sm">
                     {time}

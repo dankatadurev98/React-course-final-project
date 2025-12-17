@@ -1,15 +1,31 @@
 
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/authContext";
 import CommentSection from "../commentsSection/CommentSection";
+import { api, endpoints } from "../../requests/requests";
 
 
-export default function Comments() {
+export default function Comments({ gameId }) {
 
-    const { user } = useContext(AuthContext);
+    const { user,isAuthenticated } = useContext(AuthContext);
 
     const [text, setText] = useState('');
     const [comments, setComments] = useState([]);
+    
+
+    useEffect(()=>{
+        api.get(endpoints.comments)
+        .then(res=>{        
+            
+            
+            setComments(res)
+
+        })
+        .catch(err=>{
+            console.log(err);
+            
+        })
+    },[gameId])
 
     function commentHandler(event) {
         setText(event.target.value);
@@ -20,15 +36,25 @@ export default function Comments() {
             return;
         };
 
-        const newComments = {
-            id: Date.now(),
-            time: new Date().toLocaleTimeString(),
-            user: user.email,
-            text: text,
-        };
 
-        setComments((oldComments) => [...oldComments, newComments]);
-        setText('');
+        api.post(endpoints.comments, { text,
+             gameId,
+            email:user.email,
+            time: new Date().toLocaleString()
+            ,}, user.token)
+            .then(newComments => {
+                setComments((oldComments) => [...oldComments, newComments]);
+                setText('');
+                
+                
+            })
+            .catch(err => {
+                console.log(err)
+            })
+
+
+
+
 
     }
 
@@ -40,7 +66,7 @@ export default function Comments() {
             </h2>
 
             {/* INPUT */}
-            <div className="mb-10">
+            {isAuthenticated ?   <div className="mb-10">
                 <textarea
                     onChange={commentHandler}
                     value={text}
@@ -49,22 +75,26 @@ export default function Comments() {
                     className="w-full rounded-xl bg-gray-900 text-white p-4 resize-none border border-gray-700"
                 />
 
-                <button
+
+ <button
                     onClick={submitComments}
                     className="mt-3 px-6 py-2 rounded-xl bg-purple-600 text-white font-semibold hover:bg-purple-700"
                 >
+                    
                     Post Comment
-                </button>
-            </div>
+                </button> 
+               
+            </div> : ''}
+          
 
             {/* RENDER COMMENTS */}
             <div className="space-y-6">
 
-                
-                    {comments.map((comment)=><CommentSection key={comment.id} {...comment}/>)}
-                
 
-                
+                {comments.map((comment) => <CommentSection key={comment._id} {...comment} />)}
+
+
+
 
             </div>
         </section>

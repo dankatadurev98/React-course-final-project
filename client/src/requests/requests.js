@@ -8,6 +8,7 @@ const endpoints = {
     login: `${BASE_URL}/users/login`,
     register: `${BASE_URL}/users/register`,
     logout: `${BASE_URL}/users/logout`,
+    comments : `${BASE_URL}/data/comments`,
 };
 
 

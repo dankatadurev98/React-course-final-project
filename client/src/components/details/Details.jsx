@@ -14,6 +14,7 @@ export default function Details() {
   const [game, setGame] = useState({})
   const navigate = useNavigate()
   const isUser = user?._id === game._ownerId;
+  
 
 
   useEffect(() => {
@@ -123,11 +124,11 @@ export default function Details() {
             </div>
           </div>
         </div>
-        {isAuthenticated && (
+        
           <>
-            <Comments />
+            <Comments gameId={_id} />
           </>
-        )}
+        
 
       </div>
     </div>
