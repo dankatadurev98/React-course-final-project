@@ -45,7 +45,7 @@ export default function Contacts() {
   width={550}
   height={400}
  
-  allowFullScreen=""
+  allowFullScreen
   loading="lazy"
   referrerPolicy="no-referrer-when-downgrade"
 />
