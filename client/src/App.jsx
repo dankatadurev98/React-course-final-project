@@ -14,6 +14,7 @@ import Edit from "./components/edit/Edit"
 import Contacts from "./components/contacts/Contacts"
 import MyGames from "./components/myGames/MyGames"
 import AuthGuard from "./guards/AuthGuard"
+import PublicGuard  from "./guards/PublicGuard";
 
 
 function App() {
@@ -28,8 +29,10 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path="/contacts" element={<Contacts />} />
-        <Route path='/register' element={<Register />} />
-        <Route path='/login' element={<Login />} />
+        <Route element={<PublicGuard/>}>
+          <Route path='/register' element={<Register />} />
+          <Route path='/login' element={<Login />} />
+        </Route>
         <Route path='/catalog' element={<Catalog />} />
         <Route path='/catalog/:_id/details' element={<Details />} />
 

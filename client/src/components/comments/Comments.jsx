@@ -17,7 +17,6 @@ export default function Comments({ gameId }) {
         api.get(endpoints.comments)
             .then(res => {
                 
-                
                let realRes = res.filter(comment=>comment.gameId === gameId)
                 setComments(realRes)
             })
